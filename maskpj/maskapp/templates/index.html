@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마스크 알리미</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/mask_nearby.css" /> <!--static폴더에 넣어야 적용됨-->
+    <!-- 아이콘 폰트를 사용하기 위해서 필요한 코드 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="nav">
+            네브바
+            <div class="back-btn-wrapper">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="main">
+            <div class="search-bar-positioner">
+                <div class="search-bar-wrapper">
+                    <input type="text" id="search-bar" placeholder="목적지를 검색하세요">
+                    <div class="search-btn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="map">
+                
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" 
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=44bb339edc2cab7902935b411979b47c&libraries=services"></script>
+    <script type="text/javascript" src="../static/js/mask_nearby.js"></script>
+</body>
+</html>

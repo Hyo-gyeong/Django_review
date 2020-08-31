@@ -1,0 +1,21 @@
+{{bb.title}}<br>
+{% if bb.photo %}
+<img src="{{bb.photo.url}}" height="100"><br>
+{% endif %}
+{{bb.body}}<br>
+{{bb.pub_date}}<br>
+<a href="{% url 'update' bb.id %}">수정</a>
+
+<form action="{% url 'comment_create' bb.id %}" method=POST >
+    {% csrf_token %}
+    <input type="text" name="contents">
+    <button type="submit">Done</button>
+</form>
+
+{% for x in bb.comments.all %}
+<ul>
+    <li>
+        {{x.contents}}
+    </li>
+</ul>
+{% endfor %}

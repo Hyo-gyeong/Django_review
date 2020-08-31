@@ -1,0 +1,12 @@
+INDEX<br>
+<a href="{% url 'new' %}">글쓰기</a><br>
+{% for b in posts %}
+    {{b.title}}<br>
+    {{b.summary}}<br>
+    {% if b.photo %}
+        <img src={{b.photo.url}} height="100"><br>
+        ##썸네일<br>
+        <img src={{b.thumbnail.url}} height="100"><br>
+    {% endif %}
+    {{b.pub_date}}<a href="{% url 'detail' b.id %}">...</a><br><br>
+{% endfor %}

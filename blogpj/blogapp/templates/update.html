@@ -1,0 +1,21 @@
+<form action="{% url 'update' blog2.id %}" method="POST" enctype="multipart/form-data">
+<!--enctype="multipart/form-data"이란??? 
+    form에서 유저가 파일을 업로드 하기 위한 설정
+    POST로 요청할 때에는 요청 본문을 구성하는 데이터를 어떤 방식으로든 인코딩(코드화)을 해주어야 하는데 
+    위와 같이 하면 문자만이 아니라 전체파일을 데이터에 포함시킬 수 있음-->
+    {% csrf_token %}
+<!--강의자료에도 있습니다!
+    csrf공격을 막는 코드!
+    CSRF 공격이란?
+    CSRF 공격(Cross Site Request Forgery)은 웹 어플리케이션 취약점 중 하나로, 
+        인터넷 사용자(희생자)가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록 등)를 
+        특정 웹사이트에 요청하게 만드는 공격
+    클라이언트에서 해당 페이지를 접속하게되면 Django에서 자동으로 csrf_token을 클라이언트로 보내어 cookie에 저장시키고, 
+        POST로 전송할 때 cookie의 csrf_token이 함께 전송되어 인증하는 방식! - token이 사용자의 정보를 가지고 있음!-->
+    <input type="text" name = "t" value="{{blog2.title}}">
+    <input type="file" name = "p"> <!--이렇게 이미지를 추가할 수 있도록 input추가하기-->
+    {{blog2.pub_date}}
+    <textarea name="b">{{blog2.body}}</textarea>
+    <input type="submit" value="확인">
+</form>
+   

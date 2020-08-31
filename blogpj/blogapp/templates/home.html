@@ -1,0 +1,28 @@
+<h1>Hello World</h1>
+
+<head>
+    <script language=JavaScript>
+        function hcw(){
+            if(put.value==""){
+                alert("검색어를 입력하세요");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="fm" action="{% url 'searchzz' %}" method="GET"> <!--url name이 search인걸 찾아가라-->
+        <input  id="put" type="text" name="searchqq" placeholder="검색어를 입력하세요!"><!--value는 입려태그의 초기값, 사용자가 수정 가능-->
+        <input type="submit" value="검색" onclick=hcw() >
+    </form>
+<h5><a href="{% url 'portfolio' %}">포트폴리오 앱으로 가기</a></h5>
+<a href="{% url 'create' %}">글쓰기</a><br>
+{% for blog in blogs.all %}
+    {{blog.title}}<br>
+    {% if blog.photo %} <!--사진이 있을때만 띄우라는 조건문!-->
+    <img src="{{blog.photo.url}}" height="100"><br>
+    {% endif %}
+    {{blog.pub_date}}<br>
+    {{blog.summary}}<a href="{% url 'detail' blog.id %}">...more</a><br><br>
+{% endfor %}
+</body>

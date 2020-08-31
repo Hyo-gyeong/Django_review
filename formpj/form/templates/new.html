@@ -1,0 +1,11 @@
+<h1>new.html</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_p}}
+    </table>
+    <input type="submit" value="제출하기">
+</form>
+<!--{{form.as_table}} 입력공간이 표 형식-->
+<!--{{form.as_p}} 문단형식-->
+<!--{{form.as_ul}} 리스트형식-->

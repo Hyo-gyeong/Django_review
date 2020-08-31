@@ -1,0 +1,13 @@
+<h1>상세페이지</h1>
+
+<h2>{{wordcount}}개의 단어로 이루어져 있습니다.</h2>
+
+<a href="{% url 'home' %}">home으로 돌아가기</a>
+
+<h3>입력한 텍스트</h3>
+{{full}}
+<h3>입력한 단어</h3>
+
+{% for word, count in dictionary%}
+{{word}} : {{count}}<br>
+{% endfor %}

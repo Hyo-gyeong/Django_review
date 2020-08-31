@@ -1,0 +1,23 @@
+{% for each_book in status %} 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">제목</th>
+        <th scope="col">수강후기 미리보기</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="{% url 'detail' each_book.id %}" style="color:plum; font-size:20px;">{{ each_book.title }}</a><br><br> </th>
+        <td>{{each_book.summary}}...</td>
+      </tr>
+    </tbody>
+  </table>
+{% empty %} <!--status가 비어있으면-->
+  검색된 내용이 없습니다.
+{% endfor %}
+    
+
+
+    

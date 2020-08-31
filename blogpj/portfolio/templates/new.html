@@ -1,0 +1,7 @@
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    제목 : <input name="title" type="text"><br>
+    내용 : <textarea name="body" cols="20" rows="20"></textarea><br>
+    이미지 : <input type="file" name="image">
+    <input type="submit" value="제출하기">
+</form>

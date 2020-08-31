@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>API</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1j3kasfxy1"></script>
+    
+</head>
+<body>
+    <a href="{{ 'new' }}">지도 추가하기</a>
+    <p>네이버</p>
+    <div id="map" style="width:50%;height:400px;"></div><br>
+    <p>동덕여대</p>
+    <div id="donduk" style="width:50%;height:400px;"></div><br>
+
+    <script>
+        var HOME_PATH = window.HOME_PATH || '.';
+        var naverPosition = new naver.maps.LatLng(37.3595704, 127.105399);
+
+        var map = new naver.maps.Map('map', {
+            center: naverPosition,
+            scaleControl: false,
+            logoControl: false,
+            mapDataControl: false,
+            zoomControl: true,
+            minZoom: 6
+        });
+        var marker = new naver.maps.Marker({
+            position: naverPosition,
+            map: map,
+            icon: {
+                url: HOME_PATH +'/img/example/ico_pin.jpg', //50, 68 크기의 원본 이미지
+                size: new naver.maps.Size(25, 34),
+                scaledSize: new naver.maps.Size(25, 34),
+                origin: new naver.maps.Point(0, 0),
+                anchor: new naver.maps.Point(12, 34)
+            }
+        });
+
+        //동덕여대
+        var schoolPosition = new naver.maps.LatLng(37.606023, 127.041744);
+        var mapOptions2 = {
+            center: schoolPosition,
+            zoom: 17
+        };
+
+        var donduk = new naver.maps.Map('donduk', mapOptions2);
+
+        var marker2 = new naver.maps.Marker({
+            position: schoolPosition,
+            map: donduk,
+            icon: {
+                url: HOME_PATH +'/img/example/ico_pin.jpg', //50, 68 크기의 원본 이미지
+                size: new naver.maps.Size(25, 34),
+                scaledSize: new naver.maps.Size(25, 34),
+                origin: new naver.maps.Point(0, 0),
+                anchor: new naver.maps.Point(12, 34)
+            }
+        });
+    </script>
+    {% for map in blog %}
+        <p>{{map.title}}</p>
+        <div id="{{map.id}}" style="width:50%;height:400px;"></div><br>
+        <script type="text/javascript">
+            var HOME_PATH = window.HOME_PATH || '.';
+
+            var map3 = new naver.maps.Map('{{map.id}}', {
+                center: new naver.maps.LatLng({{map.mapPoint}}),
+                scaleControl: false,
+                logoControl: false,
+                mapDataControl: false,
+                zoomControl: true,
+                minZoom: 6
+            });
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng({{map.mapPoint}}),
+                map: map3,
+                icon: {
+                    url: HOME_PATH +'/img/example/ico_pin.jpg', //50, 68 크기의 원본 이미지
+                    size: new naver.maps.Size(25, 34),
+                    scaledSize: new naver.maps.Size(25, 34),
+                    origin: new naver.maps.Point(0, 0),
+                    anchor: new naver.maps.Point(12, 34)
+                }
+            });
+        </script>
+        <a href="{% url 'detail' map.id %}">자세히</a>
+    {% endfor %}
+</body>
+</html>

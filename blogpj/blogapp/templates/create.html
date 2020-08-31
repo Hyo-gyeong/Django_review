@@ -1,0 +1,7 @@
+<form method="POST" action="{% url 'create'%}" enctype="multipart/form-data"> <!--여기랑-->
+    {% csrf_token%} 
+    Title: <input type="text" class="form-control" name="t"><br>
+    <input type="file" name="p"> <!--여기랑-->
+    Body:<br> <textarea class="form-control" rows="5" name="b"></textarea><br> 
+    <input class="btn btn-dark" type="submit" value="제출"> 
+</form>

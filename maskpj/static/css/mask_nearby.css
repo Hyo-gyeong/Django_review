@@ -1,0 +1,29 @@
+html, body {
+    margin:0;
+    height:100vh;
+    width:100%;
+}
+
+#nav {
+    /* 사이즈 설정 */
+    width: 100%;
+    height:60px;
+
+    opacity: 0.9;
+    background-color: rgb(117,208,231);
+
+    /* 위치설정 */
+    position: relative; /*z-index사용하려고*/
+    z-index:100;
+}
+
+#main {
+    width:100%;
+    height:100vh;
+
+    position: absolute;
+    top:0;
+    z-index: 0;
+
+    background-color: antiquewhite;
+}

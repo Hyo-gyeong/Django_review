@@ -1,0 +1,20 @@
+{% load static %}
+<head>
+
+</head>
+
+<body>
+    <h3>static image를 추가해보자</h3>
+    <img src="{% static 'IU.jpg' %}" height="300" width="200">
+    <h5><a href="{% url 'new' %}">글쓰기</a></h5>
+    {% for i in blogs.all %}
+    {{i.title}}
+    {{i.body}}
+    {% if i.image %}
+        <img src={{i.image.url}} height=30>
+    {% else %}
+        <img src="{% static 'IU.jpg' %}" height=30>
+    {% endif %}
+    {{i.date}}<br><br>
+    {% endfor %}
+</body>

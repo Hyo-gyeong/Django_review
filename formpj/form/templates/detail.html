@@ -1,0 +1,7 @@
+{{detail.title}}<br>
+{{detail.body}}<br>
+{% if detail.photo %}
+    <img src={{detail.photo.url}} height=200><br>
+{% endif %}
+{{detail.pub_date}}
+<a href="{% url 'updateform' detail.id %}">수정</a>

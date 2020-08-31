@@ -1,0 +1,7 @@
+<h2>텍스트를 입력하세요</h2>
+<a href="{% url 'about' %}">about</a>
+<form action="{% url 'result' %}">
+    <textarea cols='80' rows='10' name="fulltext"></textarea>
+    <br>
+    <input type="submit" value="제출">
+</form>

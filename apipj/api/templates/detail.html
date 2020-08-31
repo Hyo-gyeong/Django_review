@@ -1,0 +1,29 @@
+<head>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1j3kasfxy1"></script>
+</head>
+{{detail.title}}<br>
+<div id="detail" style="width:80%;height:400px;"></div><br>
+<script>
+    var HOME_PATH = window.HOME_PATH || '.';
+
+    var detail = new naver.maps.Map('detail', {
+        center: new naver.maps.LatLng({{detail.mapPoint}}),
+        scaleControl: false,
+        logoControl: false,
+        mapDataControl: false,
+        zoomControl: true,
+        minZoom: 6
+    });
+    var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng({{detail.mapPoint}}),
+        map: detail,
+        icon: {
+            url: HOME_PATH +'/img/example/ico_pin.jpg', //50, 68 크기의 원본 이미지
+            size: new naver.maps.Size(25, 34),
+            scaledSize: new naver.maps.Size(25, 34),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(12, 34)
+        }
+    });
+</script>
+<a href="{% url 'edit' detail.id %}" type="button">수정</button>

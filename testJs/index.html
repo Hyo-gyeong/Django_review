@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World!");
+        alert("html에서 작성됨");
+    </script>
+    <script src="hi.js"></script> 
+    <p>비동기처리 : 들어온 요청을 순차적으로 실행시킨다면?<br>
+    앞에 들어온 작업이 시간이 오래 걸리는 작업일 시 뒤에 있는 작업들이 밀리게 된다.<br>
+    이런 작업들을 그대로 실행시키면서 뒤에 있는 코드들을 실행시키는 것이 바로 비동기처리</p>
+    <p>Promise객체를 사용하는데 대기, 이행, 거부 세가지 상태를 가진다.</p>
+    <p>두 가지 패턴이 존재, async, await키워드를 활용한다</p>
+    <p>function test(timer){
+        let pobj = new Promise((resolve, reject) => {
+            setTimeout(()=> {
+                resolve(`Timer : ${timer}`)
+            }, timer);
+        });
+
+        pobj.then((value)=>console.log(value));
+    }뭐 이런식...
+    </p>
+</body>
+</html>

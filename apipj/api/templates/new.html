@@ -1,0 +1,8 @@
+<h1><a href="https://www.google.com/maps" target="blank">Google Map</a>에서 위도, 경도를 찾아 표시해보세요!</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_p}}
+    </table>
+    <input type="submit" value="제출하기">
+</form>
